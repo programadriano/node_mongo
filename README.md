@@ -23,7 +23,7 @@ npm install
 Inicie a aplicação executando o seguinte comando:
 
 ```shell
-npm install
+npm start
 ```
 
 
