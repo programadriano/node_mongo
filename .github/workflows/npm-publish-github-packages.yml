@@ -1,0 +1,35 @@
+name: Node.js Build, Test, and SonarQube Analysis
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build, Test, and Analyze
+    runs-on: ubuntu-latest
+    permissions: read-all
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify the Node.js version you want to use
+
+      - run: npm install  # Install dependencies if required before build
+
+      - name: Run Tests with Jest
+        run: npm test  # Replace with the command to run your tests using Jest or other testing frameworks
+      
+      # Add other necessary build steps here based on your Node.js project configuration
+      
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}    
+
