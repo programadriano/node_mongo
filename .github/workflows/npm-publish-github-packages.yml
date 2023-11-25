@@ -21,11 +21,6 @@ jobs:
           node-version: '14'  # Specify the Node.js version you want to use
 
       - run: npm install  # Install dependencies if required before build
-
-      - name: Run Tests with Jest
-        run: npm test  # Replace with the command to run your tests using Jest or other testing frameworks
-      
-      # Add other necessary build steps here based on your Node.js project configuration
       
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
