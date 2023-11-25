@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = 'sua_url_de_conexao_mongodb';
+const MONGODB_URI = 'localhost:27017/db_local';
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
